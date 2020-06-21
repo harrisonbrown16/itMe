@@ -1,7 +1,5 @@
 .bulbWrapper {
     display: grid;
-    /* grid-template-columns: 1; */
-    /* grid-template-rows: 1; */
     position: relative;
 }
 
@@ -13,88 +11,116 @@
 }
 
 #bulb {
-    animation: bulb 4s infinite ease-in-out;
+    animation: 
+        bulbFast 3s ease-in-out,
+        bulbTransition 4s ease-in-out,
+        bulbSlow 4s infinite ease-in-out;
+    animation-delay: 0s, 3s, 7s;
     margin-top: 34px;
 }
 
 #rope {
-    animation: rope 4s infinite ease-in-out;
+    animation: 
+        ropeFast 3s ease-in-out,
+        ropeTransition 4s ease-in-out,
+        ropeSlow 4s infinite ease-in-out;
+    animation-delay: 0s, 3s, 7s;
     margin-top: 0px;
 }
 
 #light {
-    animation: light 4s infinite ease-in-out;
-    /* animation: lightflicker 1.5s linear; */
+    animation:
+        lightFlicker 3s ease-in-out,
+        lightTransition 4s ease-in-out,
+        lightSlow 4s infinite ease-in-out;
+    animation-delay: 0s, 3s, 7s;
 }
 
-@keyframes bulb {
-    0% {
-        transform: translateX(-11px) rotateZ(18deg);
-    }
-    50% {
-        transform: translateX(14px) rotateZ(-18deg);
-    }
-    100% {
-        transform: translateX(-11px) rotateZ(18deg);
-    }
+
+/* ---------------------- BULB ---------------------- */
+
+@keyframes bulbFast {
+    0% { transform: translateX(-11px) rotateZ(16deg); }
+    50% { transform: translateX(14px) rotateZ(-18deg); }
+    100% { transform: translateX(-11px) rotateZ(16deg); }
+}
+@keyframes bulbTransition {
+    0% { transform: translateX(-11px) rotateZ(16deg); }
+    50% { transform: translateX(14px) rotateZ(-18deg); }
+    100% { transform: translateX(-5px) rotateZ(9deg); }
 }
 
-@keyframes rope {
-    0% {
-        transform: translateX(-5px) rotateZ(10deg);
-    }
-    50% {
-        transform: translateX(7px) rotateZ(-10deg);
-    }
-    100% {
-        transform: translateX(-5px) rotateZ(10deg);
-    }
+@keyframes bulbSlow {
+    0% { transform: translateX(-5px) rotateZ(9deg); }
+    50% { transform: translateX(8px) rotateZ(-9deg); }
+    100% { transform: translateX(-5px) rotateZ(9deg); }
 }
 
-@keyframes light {
-    0% {
-        transform: translateX(-14px);
-    }
-    50% {
-        transform: translateX(17px);
-    }
-    100% {
-        transform: translateX(-14px);
-    }
+/* ---------------------- ROPE --------------------- */
+
+@keyframes ropeFast {
+    0% { transform: translateX(-5px) rotateZ(10deg); }
+    50% { transform: translateX(7px) rotateZ(-10deg); }
+    100% { transform: translateX(-5px) rotateZ(10deg); }
 }
 
-@keyframes lightflicker {
-    0% {
-        opacity: 0
-    }
-    10% {
-        opacity: 1
-    }
-    20% {
-        opacity: 0
-    }
-    30% {
-        opacity: 1
-    }
-    40% {
-        opacity: 0
-    }
-    50% {
-        opacity: 1
-    }
-    60% {
-        opacity: 0
-    }
-    70% {
-        opacity: 1
-    }
-    80% {
-        opacity: 0
-    }
-    90% {
-        opacity: 1
-    }
-    100% {
-        opacity: 0
-    }
+@keyframes ropeTransition {
+    0% { transform: translateX(-5px) rotateZ(10deg); }
+    50% { transform: translateX(7px) rotateZ(-10deg); }
+    100% { transform: translateX(-2px) rotateZ(6deg); }
+}
+
+@keyframes ropeSlow {
+    0% { transform: translateX(-2px) rotateZ(6deg); }
+    50% { transform: translateX(4px) rotateZ(-6deg); }
+    100% { transform: translateX(-2px) rotateZ(6deg); }
+}
+
+/* --------------------- LIGHT ---------------------- */
+
+@keyframes lightFast {
+    0% { transform: translateX(-14px); }
+    50% { transform: translateX(17px); }
+    100% { transform: translateX(-14px); }
+}
+
+@keyframes lightTransition {
+    0% { transform: translateX(-14px); }
+    50% { transform: translateX(17px); }
+    100% { transform: translateX(-7px); }
+}
+
+@keyframes lightSlow {
+    0% { transform: translateX(-7px); }
+    50% { transform: translateX(9px); }
+    100% { transform: translateX(-7px); }
+}
+
+@keyframes lightFlicker {
+    0% { opacity: 0; transform: translateX(-14px); }
+    4% { opacity: 0 }
+    8% { opacity: 0 }
+    12% { opacity: 0 }
+    16% { opacity: 0 }
+    20% { opacity: 0 }
+    24% { opacity: 0 }
+    28% { opacity: 1 }
+    32% { opacity: 0 }
+    36% { opacity: 0 }
+    40% { opacity: 0 }
+    44% { opacity: 0 }
+    48% { opacity: 0 }
+    52% { opacity: 0; transform: translateX(17px); }
+    56% { opacity: 0 }
+    60% { opacity: 0 }
+    64% { opacity: 0 }
+    68% { opacity: 1 }
+    72% { opacity: 0 }
+    76% { opacity: 0 }
+    80% { opacity: 1 }
+    84% { opacity: 0 }
+    88% { opacity: 0 }
+    92% { opacity: 0 }
+    96% { opacity: 0 }
+    100% { opacity: 0; transform: translateX(-14px); }
 }
